@@ -1,10 +1,12 @@
 import React from 'react'
-import {} from 'react-native'
-import Autor from './src/Components/Autor'
+import { NavigationContainer } from '@react-navigation/native'
+import Stack from './src/Screens/Stack'
 
 export default()=>{
 
   return(
-    <Autor></Autor>
+    <NavigationContainer>
+      <Stack></Stack>
+    </NavigationContainer>
   )
 }
