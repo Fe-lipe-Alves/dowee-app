@@ -1,26 +1,112 @@
 import React from "react"
-import { View, Text, Button } from "react-native"
+import { View, Text, Button, StyleSheet, ScrollView } from "react-native"
+import Header from "../Components/Header"
+import Icon from 'react-native-vector-icons/FontAwesome'
+import styleBase from '../Assets/styleBase'
 
 export default props => {
+
     return (
 
-        <View style={{
-            flex: 1,
-            flexDirection: 'column',
+        <View style={[{
             justifyContent: 'center',
             backgroundColor: "white",
-          }}>
-           
-           <View>
+            overflow: 'scroll'
+          }, styleBase.container ]}
+        >
+            <ScrollView>
 
-                <Text style={{ fontSize: 40, textAlign: 'center' }}>Dowee</Text>
-                <Button title="Entrar" onPress={p=>{
-                    props.navigation.navigate("Signup") 
-                }}>
-                    12313213
-                </Button>
+            <Header title="Musicas" />
 
+            {/* Inicio Minhas Playlists */}
+           <View style={ styleBase.container }>
+                <View style={ styleBase.row }>
+                    <Text style={ styleBase.titleArea } onPress={ p => { props.navigation.goBack() }} >
+                        Minhas playlists
+                    </Text>
+                    
+                    <Icon 
+                        name="chevron-right" 
+                        style={ styleBase.titleArea.icon }
+                        onPress={ p => {
+                            props.navigation.goBack()
+                        }} 
+                    />
+                </View>
+
+                <View style={ styleBase.row }>
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+                </View>
            </View>
+           {/* Fim Minhas Playlists */}
+
+           {/* Inicio Recomendadas */}
+           <View style={ styleBase.container }>
+                <View style={ styleBase.row }>
+                    <Text style={ styleBase.titleArea } onPress={ p => { props.navigation.goBack() }} >
+                        Recomedadas
+                    </Text>
+                    
+                    <Icon 
+                        name="chevron-right" 
+                        style={ styleBase.titleArea.icon }
+                        onPress={ p => {
+                            props.navigation.goBack()
+                        }} 
+                    />
+                </View>
+
+                <View style={ styleBase.row }>
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+
+                    <View style={ styleBase.cover }>
+                        <View style={ styleBase.cover.box }>
+                            <Text >Playlist</Text>
+                        </View>
+                    </View>
+                </View>
+           </View>
+           {/* Inicio Recomendadas */}
+
+           </ScrollView>
 
         </View>
 
