@@ -13,11 +13,15 @@ export default StyleSheet.create({
     titleArea: {
         fontWeight: '600',
         fontSize: 18,
+        color: '#222',
     },
     titleAreaIcon: {
         fontSize: 15,
         paddingHorizontal: 8,
-        lineHeight: 26,
+        color: '#222',
+    },
+    titleAreaIconBox: {
+        justifyContent:'center',
     },
 
     cover: {
@@ -45,5 +49,31 @@ export default StyleSheet.create({
         resizeMode: 'cover', 
         borderRadius: 5,
         justifyContent: "center"
-    }
+    },
+
+    miniCollection: {
+        width: '100%',
+        paddingVertical: 3
+    },
+    miniCover: {
+        width: 70,
+        padding: 5,
+        aspectRatio: 1,
+    },
+    miniCollectionLegend: {
+        flex: 1,
+        paddingHorizontal: 10,
+        paddingVertical: 2,
+        flex: 1,
+        justifyContent: 'center'
+    },
+    miniCollectionTitle: {
+        fontWeight: '700',
+        fontSize: 14,
+        paddingBottom: 4
+    },
+    miniCollectionSubtitle: {
+        fontWeight: '300',
+        fontSize: 13
+    },
 })

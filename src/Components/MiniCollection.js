@@ -24,28 +24,29 @@ export default props => {
                 </View>
             </View>
 
-            {/* <View > */}
-            <ScrollView
-                horizontal={ true } 
-                showsHorizontalScrollIndicator={ false }
-                style={ [styleBase.row, { flexWrap: 'nowrap' }] }
-            >
-
+            <View style={ styleBase.row }>
                 { props.collection.map((item, key) => {
+                    console.log('item -> ', item)
                     return (
-                        <View style={ styleBase.cover } key={key}>
-                            <View style={ styleBase.coverBox }>
-                                <ImageBackground 
-                                    source={ item.image } 
-                                    style={ styleBase.coverImage }
-                                >
-                                </ImageBackground>
+                        <View style={ [styleBase.miniCollection, styleBase.row] }  key={key}>
+                            <View style={ styleBase.miniCover }>
+                                <View style={ styleBase.coverBox }>
+                                    <ImageBackground 
+                                        source={ item.image } 
+                                        style={ styleBase.coverImage }
+                                    >
+                                    </ImageBackground>
+                                </View>
+                            </View>
+
+                            <View style={ styleBase.miniCollectionLegend }>
+                                <Text style={ styleBase.miniCollectionTitle }>{ item.title }</Text>
+                                <Text style={ styleBase.miniCollectionSubtitle }>{ item.subTitle }</Text>
                             </View>
                         </View>
                     );
                 }) }
-
-            </ScrollView>
+            </View>
         </View>
     )
 }
