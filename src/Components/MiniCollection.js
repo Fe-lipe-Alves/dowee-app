@@ -26,7 +26,6 @@ export default props => {
 
             <View style={ styleBase.row }>
                 { props.collection.map((item, key) => {
-                    console.log('item -> ', item)
                     return (
                         <View style={ [styleBase.miniCollection, styleBase.row] }  key={key}>
                             <View style={ styleBase.miniCover }>

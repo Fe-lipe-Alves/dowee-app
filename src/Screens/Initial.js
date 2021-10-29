@@ -45,6 +45,11 @@ export default props => {
             title: 'Devault',
             subTitle: 'Empty Room EP'
         },
+        {
+            image: { uri: "https://e-cdns-images.dzcdn.net/images/cover/3e405edf128e11fa50752487848f03ac/264x264-000000-80-0-0.jpg" },
+            title: 'Devault',
+            subTitle: 'Empty Room EP'
+        },
     ]
 
     return (
@@ -55,9 +60,9 @@ export default props => {
             overflow: 'scroll'
           }, styleBase.container ]}
         >
-            <ScrollView>
+            <ScrollView  showsVerticalScrollIndicator={ false } >
 
-            <Header title="Musicas" />
+            <Header title="Musicas" { ...props } />
 
             <CollectionHorizontal collection={ collection } title="Minhas Playlists">
             </CollectionHorizontal>

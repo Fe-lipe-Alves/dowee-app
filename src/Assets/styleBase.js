@@ -1,9 +1,15 @@
 import { Dimensions, StyleSheet } from "react-native"
+import { Colors } from "react-native/Libraries/NewAppScreen"
 
 export default StyleSheet.create({
+    button: {
+        borderRadius: 10,
+        overflow: 'hidden'
+    },
+
     container: {
         flex: 1,
-        padding: 8
+        paddingHorizontal: 8
     },
     row: {
         flexDirection: "row",

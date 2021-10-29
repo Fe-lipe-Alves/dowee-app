@@ -30,7 +30,7 @@ export default props => {
         },
         icon: {
             fontSize: 20,
-            marginHorizontal: 8
+            marginHorizontal: 10
         }
     })
 
@@ -40,12 +40,12 @@ export default props => {
             
             <View style={ styleBase.row }>
                 <Icon name="plus" style={ styles.icon } onPress={ p => {
-                        props.navigation.goBack()
+                        props.navigation.navigate('NewPlaylist')
                     }}
                 >
                 </Icon>
                 <Icon name="user-o" style={ styles.icon } onPress={ p => {
-                        props.navigation.goBack()
+                        props.navigation.navigate('User')
                     }}
                 >
                 </Icon>
