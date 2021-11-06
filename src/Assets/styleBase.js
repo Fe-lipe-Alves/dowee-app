@@ -6,6 +6,13 @@ export default StyleSheet.create({
         borderRadius: 10,
         overflow: 'hidden'
     },
+    hr: {
+        width: '90%',
+        marginHorizontal: '5%',
+        backgroundColor: '#999',
+        height: 1,
+        marginVertical: 10,
+    },
 
     container: {
         flex: 1,

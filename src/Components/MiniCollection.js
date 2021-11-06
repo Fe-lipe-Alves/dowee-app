@@ -1,11 +1,11 @@
 import React from "react"
-import { View, Text, Button, StyleSheet, ScrollView, ImageBackground } from "react-native"
+import { View, Text, Button, StyleSheet, ScrollView, ImageBackground, TouchableOpacity } from "react-native"
 import Header from "../Components/Header"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import styleBase from '../Assets/styleBase'
 
 export default props => {
-    
+
     return (
         <View style={ [styleBase.container, { marginBottom: 10 }] }>
             <View style={ styleBase.row }>
@@ -13,36 +13,47 @@ export default props => {
                     { props.title }
                 </Text>
                 
-                <View style={ styleBase.titleAreaIconBox }>
-                    <Icon 
-                        name="chevron-right" 
-                        style={ styleBase.titleAreaIcon }
-                        onPress={ p => {
-                            props.navigation.goBack()
-                        }} 
-                    />
-                </View>
+                { 
+                    ( () => {
+                        if (!(props.hasOwnProperty('noChevron')) && (!!props.noChevron)) {
+                            return (
+                                <View style={ styleBase.titleAreaIconBox }>
+                                    <Icon 
+                                        name="chevron-right" 
+                                        style={ styleBase.titleAreaIcon }
+                                        onPress={ p => {
+                                            props.navigation.goBack()
+                                        }} 
+                                    />
+                                </View>
+                            )
+                        }
+                    })()
+                }
             </View>
 
             <View style={ styleBase.row }>
-                { props.collection.map((item, key) => {
+                { props.collection.items.map((item, key) => {
+                    
                     return (
-                        <View style={ [styleBase.miniCollection, styleBase.row] }  key={key}>
-                            <View style={ styleBase.miniCover }>
-                                <View style={ styleBase.coverBox }>
-                                    <ImageBackground 
-                                        source={ item.image } 
-                                        style={ styleBase.coverImage }
-                                    >
-                                    </ImageBackground>
+                        <TouchableOpacity onPress={ p => { console.log('ola') } } style={ [styleBase.miniCollection, styleBase.row] }  key={key}>
+                            {/* <View > */}
+                                <View style={ styleBase.miniCover }>
+                                    <View style={ styleBase.coverBox }>
+                                        <ImageBackground 
+                                            source={ item.image } 
+                                            style={ styleBase.coverImage }
+                                        >
+                                        </ImageBackground>
+                                    </View>
                                 </View>
-                            </View>
 
-                            <View style={ styleBase.miniCollectionLegend }>
-                                <Text style={ styleBase.miniCollectionTitle }>{ item.title }</Text>
-                                <Text style={ styleBase.miniCollectionSubtitle }>{ item.subTitle }</Text>
-                            </View>
-                        </View>
+                                <View style={ styleBase.miniCollectionLegend }>
+                                    <Text style={ styleBase.miniCollectionTitle }>{ item.title }</Text>
+                                    <Text style={ styleBase.miniCollectionSubtitle }>{ item.subTitle }</Text>
+                                </View>
+                            {/* </View> */}
+                        </TouchableOpacity>
                     );
                 }) }
             </View>
