@@ -1,9 +1,46 @@
 import React from "react"
-import { Button, Text, View, TextInput, StyleSheet } from "react-native"
+import { Button, Text, View, TextInput, StyleSheet, Alert } from "react-native"
+import { useUser } from "../Context/UserContext";
+import Service from "../Services/Service";
 
 export default props => {
-    const [email, setEmail] = React.useState();
-    const [password, setPassword] = React.useState();
+
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const {user, setUser} = useUser()
+
+    const login = () => {
+        // if (email != '' && password != '') {
+
+            Service.requisicaoPOST('POST', '/auth/login', {
+                email,
+                password
+            }).then(response => {
+                console.log(response)
+            })
+
+            // if (email == 'felipe@email.com' && password == '123456') {
+
+                setUser({
+                    name: 'Felipe A.',
+                    email: email,
+                    password: password,
+                    logged: true,
+                    image: { uri: 'https://e-cdns-images.dzcdn.net/images/user/d449598eb4fe4157539f49f4fbb66bf8/264x264-000000-80-0-0.jpg'},
+                    id: 15
+                })
+
+                setEmail('')
+            setPassword('')
+
+                props.navigation.navigate('Initial')
+            // } else {
+            //     Alert.alert('Email ou senha inválidos')
+            // }
+        // }  else {
+        //     Alert.alert('Informar email e senha')
+        // }
+    }
 
     const styles = StyleSheet.create({
         container: {
@@ -74,20 +111,16 @@ export default props => {
             <View style={ styles.buttonCadastrar }>
                 <Button 
                     title="Entrar"
-                    onPress={ p => {
-                        props.navigation.navigate ("Initial") 
-                    } }
+                    onPress={ login }
                 ></Button>
             </View>
 
             <View style={ styles.center }>
                 <Text 
-                    title="Faça Login"
+                    title="Cadastrar"
                     style={ styles.linkLogin }
                     onPress={
-                        p => {
-                            props.navigation.navigate('Signup')
-                        }
+                        p => p.navigate.navigate('Sigin')
                     }
                 >
                     Cadastrar-se

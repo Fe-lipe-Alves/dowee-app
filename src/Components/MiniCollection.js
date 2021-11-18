@@ -1,5 +1,5 @@
 import React from "react"
-import { View, Text, Button, StyleSheet, ScrollView, ImageBackground, TouchableOpacity } from "react-native"
+import { View, Text, Button, StyleSheet, ScrollView, ImageBackground, TouchableOpacity, FlatList } from "react-native"
 import Header from "../Components/Header"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import styleBase from '../Assets/styleBase'
@@ -37,7 +37,6 @@ export default props => {
                     
                     return (
                         <TouchableOpacity onPress={ p => { console.log('ola') } } style={ [styleBase.miniCollection, styleBase.row] }  key={key}>
-                            {/* <View > */}
                                 <View style={ styleBase.miniCover }>
                                     <View style={ styleBase.coverBox }>
                                         <ImageBackground 
@@ -52,7 +51,6 @@ export default props => {
                                     <Text style={ styleBase.miniCollectionTitle }>{ item.title }</Text>
                                     <Text style={ styleBase.miniCollectionSubtitle }>{ item.subTitle }</Text>
                                 </View>
-                            {/* </View> */}
                         </TouchableOpacity>
                     );
                 }) }
