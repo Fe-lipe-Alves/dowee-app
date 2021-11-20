@@ -1,4 +1,4 @@
-const uri = 'http://localhost:8008'
+const uri = 'http://192.168.0.104:8033'
 
 export default class Service {
     static requisicaoGET = (method, uricompl) => {

@@ -10,36 +10,33 @@ export default props => {
     const {user, setUser} = useUser()
 
     const login = () => {
-        // if (email != '' && password != '') {
+        if (email != '' && password != '') {
 
             Service.requisicaoPOST('POST', '/auth/login', {
                 email,
                 password
-            }).then(response => {
-                console.log(response)
             })
-
-            // if (email == 'felipe@email.com' && password == '123456') {
-
+            .then(response => {
                 setUser({
-                    name: 'Felipe A.',
-                    email: email,
-                    password: password,
+                    token:  response.token,
+                    id:     response.user.id,
+                    name:   response.user.name,
+                    email:  response.user.email,
                     logged: true,
-                    image: { uri: 'https://e-cdns-images.dzcdn.net/images/user/d449598eb4fe4157539f49f4fbb66bf8/264x264-000000-80-0-0.jpg'},
-                    id: 15
+                    image:  { uri: response.user.image},
                 })
 
                 setEmail('')
-            setPassword('')
-
+                setPassword('')
+    
                 props.navigation.navigate('Initial')
-            // } else {
-            //     Alert.alert('Email ou senha inválidos')
-            // }
-        // }  else {
-        //     Alert.alert('Informar email e senha')
-        // }
+            })
+            .catch(() => {
+                Alert.alert('Email ou senha incorreto')
+            })
+        }  else {
+            Alert.alert('Informar email e senha')
+        }
     }
 
     const styles = StyleSheet.create({
